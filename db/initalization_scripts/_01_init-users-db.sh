@@ -1,0 +1,7 @@
+#!/bin/bash
+set -e
+
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+	CREATE USER reddit_content_dev WITH PASSWORD '${POSTGRES_REDDIT_DEV_PASSWORD}';
+	CREATE USER reddit_content_prod_write WITH PASSWORD '${POSTGRES_REDDIT_PROD_WRITE_PASSWORD}';
+EOSQL

@@ -1,0 +1,1 @@
+CREATE DATABASE content_dev TEMPLATE = content_prod;
