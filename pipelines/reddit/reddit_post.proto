@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+import "core_content.proto";
+import "google/protobuf/struct.proto";
+
+package reddit_data;
+
+enum StaticFileType {
+        UNKNOWN = 0;
+        REDDIT_VIDEO = 1;
+        REDDIT_IMAGE = 2;
+        REDDIT_TEXT = 3;
+        REDDIT_AUDIO = 4;
+}
+
+
+message StaticFileEntry {
+    StaticFileType type = 1;
+    string id = 2;
+    optional string path = 3;
+}
+
+message RedditUser {
+    string id = 1;
+    string name = 2;
+    string full_name = 3;
+}
+
+message RedditPost {
+
+    string id = 1;
+    string type = 2; 
+    float created_date = 3;
+
+    message RedditPostFields {
+        string subreddit = 1;
+        string url = 2;
+        string title = 3;
+        bool static_downloaded_flag = 4; 
+        optional string screenshot_path = 5;
+        optional string json_file_path = 6;
+        float post_created_date = 7;
+        optional string static_root_url = 8;
+        repeated StaticFileEntry static_files = 9;
+        optional RedditUser user = 10;
+    }
+
+    RedditPostFields fields = 4;
+}
+
+message RedditPosts {
+    repeated RedditPost posts = 1;
+}
+
+message RedditVideoContent {
+    string id = 1; 
+    string source = 2;
+    CoreContentTypes type = 3;
+    float created_date = 4;
+    string storage_path = 5;
+    google.protobuf.Struct fields = 6;
+}

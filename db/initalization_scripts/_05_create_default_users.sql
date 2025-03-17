@@ -1,5 +1,10 @@
-GRANT ALL PRIVILEGES ON DATABASE Content_DEV TO reddit_content_dev ;
-GRANT ALL PRIVILEGES ON DATABASE Content_DEV TO reddit_content_dev ;
+GRANT ALL PRIVILEGES ON DATABASE content_dev TO reddit_content_dev ;
+GRANT ALL PRIVILEGES ON DATABASE content_dev TO reddit_content_dev;
+GRANT USAGE, CREATE ON SCHEMA core TO reddit_content_dev;
+GRANT INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA core TO reddit_content_dev;
+
+GRANT INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA core TO reddit_content_dev;
+GRANT USAGE, SELECT, UPDATE ON ALL SEQUENCES IN SCHEMA core TO reddit_content_dev;
 GRANT USAGE, CREATE ON SCHEMA core TO reddit_content_dev ;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA core TO reddit_content_dev ;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA core TO reddit_content_dev ;
