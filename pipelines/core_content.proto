@@ -3,4 +3,5 @@ syntax = "proto3";
 enum CoreContentTypes {
     UNKNOWN = 0;
     VIDEO_DASH_STREAM = 1;
+    TEXT_CONTENT = 2;
 }

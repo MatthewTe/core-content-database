@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+import "core_content.proto";
+import "google/protobuf/struct.proto";
+
+message LoopTTNewsArticle {
+    string id = 1;
+    string type = 2;
+    float created_date = 3;
+
+    message NewsArticleFields {
+        string title = 1;
+        string url = 2;
+        float extracted_date = 3;
+        float published_date = 4;
+        string source_file_path = 5;
+    }
+
+    NewsArticleFields fields = 4;
+
+}
+
+message LoopTTArticles {
+    repeated LoopTTNewsArticle articles = 1;
+}
+
+message ArticlesTextContent {
+    string id = 1;
+    string source = 2;
+    CoreContentTypes type = 3;
+    float created_date = 4;
+    string storage_path = 5;
+    google.protobuf.Struct fields = 6;
+}
