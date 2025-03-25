@@ -1,2 +1,5 @@
 *.env
 !*example.env
+db/backups/*tar
+db/backups/*backup
+minio/backups/*backup
